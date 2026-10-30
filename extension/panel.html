@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>听力 AI 助手</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand-mark">♫</div><div><h2>听力 AI 助手</h2><small>LISTEN · TRANSCRIBE · LEARN</small></div></header>
+<nav><button data-view="audio" class="active">音频</button><button data-view="result">原文与翻译</button><button data-view="history">历史</button><button data-view="settings">设置</button></nav>
+<section id="audio"><div class="notice"><strong>逐题处理提示</strong><p>多题听力请单独下载每一题的音频，再逐个转写、翻译，避免自动化批量处理造成窜题。</p></div><p>打开包含 MP3 的网页并播放，点击刷新检测。支持手动选择本地音频。</p><button id="refresh">刷新检测</button><div id="items"></div><label class="upload">选择本地音频<input id="file" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac"></label><p id="selected"></p><button id="transcribe" class="primary">开始转写</button><small>本地 Whisper 识别：音频只在本机处理，不会上传第三方语音识别服务。</small></section>
+<section id="result" hidden><div class="notice"><strong>DeepSeek 使用提示</strong><p>请手动将对应听力的题目、题干和全部选项一并复制到 DeepSeek 聊天框，再发送分析，避免混淆不同题目。</p></div><p id="status"></p><div class="actions"><button id="translate">翻译成中文</button><button id="deepseek">用 DeepSeek 分析</button><button id="copy">复制完整文本</button><button id="export">导出 TXT</button><button id="srt">导出 SRT</button></div><div id="segments"></div></section>
+<section id="history" hidden><button id="clear">清空历史</button><div id="records"></div></section>
+<section id="settings" hidden><h3>语音识别</h3><p class="model-help">仅使用本地 Whisper，不提供云端语音识别，也不会将音频上传到 Groq 等第三方语音识别服务。</p><label>本地 Whisper 模型
+<select id="localModel">
+<option value="tiny_en">Tiny English（随插件预装，默认）</option>
+<option value="base_en">Base English（首次选择时下载）</option>
+<option value="tiny_multi">Tiny Multilingual（首次选择时下载）</option>
+</select></label>
+<p class="model-help">Tiny English 已包含在完整发行包中；Base English 和 Tiny Multilingual 按需下载并缓存在浏览器中。首次下载需要网络，之后可离线使用。</p><label>DeepSeek API Key（可选）<input id="deepseekKey" type="password" placeholder="sk-..."></label><button id="saveSettings">保存设置</button><p id="settingsStatus"></p></section><p id="progress"></p><footer>语音识别完全在本机执行，音频不会上传第三方识别服务。若主动使用 DeepSeek API 翻译，转写文本会发送至 DeepSeek；也可以使用 DeepSeek 官方网页联动，由你手动粘贴发送。</footer><script src="panel.js"></script></body></html>

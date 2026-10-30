@@ -1,0 +1,7 @@
+node_modules/
+extension/vendor/
+extension/models/
+*.zip
+.env
+.env.*
+*.log

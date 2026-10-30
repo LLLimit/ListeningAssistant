@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "听力 AI 助手 混合版",
+  "version": "3.1.0",
+  "description": "检测和下载网页 MP3，Whisper 转写、翻译、DeepSeek 网页联动与历史记录",
+  "permissions": [
+    "storage",
+    "downloads",
+    "tabs",
+    "webRequest",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://127.0.0.1:8765/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "打开听力 AI 助手"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
